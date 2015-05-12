@@ -1,0 +1,2 @@
+module NotFoodsHelper
+end
