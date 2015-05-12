@@ -1,0 +1,14 @@
+<h1> You Are Not What You Eat </h1>
+
+<div class="nav_bar">
+  <ul class="menu">
+
+
+        <% if user_signed_in? %>
+    <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "list" %></li>
+        <% else %>
+    <li><%= link_to 'Sign In', new_user_session_path, :class => "list" %></li>
+
+    <% end %>
+  </ul>
+</div>
