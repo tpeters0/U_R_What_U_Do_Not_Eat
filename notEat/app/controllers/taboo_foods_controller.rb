@@ -1,0 +1,2 @@
+class TabooFoodsController < ApplicationController
+end

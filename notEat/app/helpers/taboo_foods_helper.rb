@@ -1,0 +1,2 @@
+module TabooFoodsHelper
+end
