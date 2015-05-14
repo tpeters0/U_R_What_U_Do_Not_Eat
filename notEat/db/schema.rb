@@ -22,20 +22,11 @@ ActiveRecord::Schema.define(version: 20150513225453) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "foods_users", force: :cascade do |t|
-    t.integer "food_id"
-    t.integer "user_id"
-  end
-
   create_table "periods", force: :cascade do |t|
+    t.integer  "restriction_id"
     t.text     "when"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "periods_restricts", id: false, force: :cascade do |t|
-    t.integer "foods_users_id"
-    t.integer "periods_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -50,19 +41,23 @@ ActiveRecord::Schema.define(version: 20150513225453) do
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
+    t.boolean  "admin"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reasons", force: :cascade do |t|
+    t.integer  "restriction_id"
     t.text     "why"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
-  create_table "reasons_restricts", id: false, force: :cascade do |t|
-    t.integer "reasons_id"
-    t.integer "foods_users_id"
+  create_table "restrictions", force: :cascade do |t|
+    t.integer "food_id"
+    t.integer "user_id"
+    t.text    "comment"
   end
 
   create_table "users", force: :cascade do |t|

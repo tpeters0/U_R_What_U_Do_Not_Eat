@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   resources    :foods_users, only: [:index, :show]
   resources    :posts, only: [:index, :show]
 
-  resources    :foods, :periods, :reasons
+  resources    :foods, :periods, :reasons, :results
 
 end
