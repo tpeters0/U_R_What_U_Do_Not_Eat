@@ -1,3 +1,0 @@
-var Chart = function(){
-
-  }
