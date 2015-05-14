@@ -11,21 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513020802) do
+ActiveRecord::Schema.define(version: 20150513225453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "body"
+    t.integer  "profile_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reasons", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "reason_name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "restrict_reasons", id: false, force: :cascade do |t|
@@ -33,19 +40,26 @@ ActiveRecord::Schema.define(version: 20150513020802) do
     t.integer "taboo_foods_users_id"
   end
 
-  create_table "taboo_foods", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "restrict_times", id: false, force: :cascade do |t|
+    t.integer "taboo_foods_users_id"
+    t.integer "time_periods_id"
   end
 
-  create_table "taboo_foods_users", id: false, force: :cascade do |t|
+  create_table "taboo_foods", force: :cascade do |t|
+    t.text     "taboo_food_name"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "taboo_foods_users", force: :cascade do |t|
     t.integer "taboo_food_id"
     t.integer "user_id"
   end
 
   create_table "time_periods", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "time_pd_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
