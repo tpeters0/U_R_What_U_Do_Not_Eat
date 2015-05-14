@@ -1,21 +1,64 @@
 
-TabooFood.destroy_all
+Food.destroy_all
 
 
-taboo_foods = [
+foods = [
   {
-    taboo_food_name: "All Meat"
+      name: "Any Meat"
   },
   {
-    taboo_food_name: "Shellfish"
+      name: "Pork"
   },
   {
-      taboo_food_name: "Dairy"
+      name: "Red Meat"
   },
   {
-      taboo_food_name: "Pork"
+      name: "Shellfish"
   },
   {
-      taboo_food_name: "Tree Nuts"
-  }
+      name: "Dairy"
+  },
+  {
+      name: "Tree Nuts"
+  },
+  {
+      name: "Peanuts"
+  },
+  {
+      name: "Eggs"
+  },
+  {
+      name: "Gluten"
+  },
+  {
+      name: "Certain fruits or vegetables"
+  },
+  {
+      name: "Non-Organic Food"
+  },
+  {
+      name: "Genetically Modified Food"
+  },
+  {
+      name: "Products With Added Sugar"
+  },
+  {
+      name: "Transfats"
+  },
+  {
+      name: "Products with Caffeine"
+  },
+  {
+      name: "Products with Alcohol"
+  },
+  {
+      name: "Certain Combinations of Foods"
+  },
+  {
+      name: "Other"
+  },
 ]
+
+foods.each do |food_hash|
+  Food.create!(food_hash)
+end

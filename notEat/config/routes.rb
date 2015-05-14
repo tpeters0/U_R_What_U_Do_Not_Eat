@@ -5,14 +5,14 @@ Rails.application.routes.draw do
 
   authenticate :user do
     resources  :restrict_reasons, only: [:new, :create, :edit, :update, :destroy]
-    resources  :taboo_foods_users, only: [:new, :create, :edit, :update, :destroy]
+    resources  :foods_users, only: [:new, :create, :edit, :update, :destroy]
     resources  :posts, only: [:new, :create, :edit, :update, :destroy]
   end
 
-  resources    :restrict_reasons, only: [:index, :show]
-  resources    :taboo_foods_users, only: [:index, :show]
+  resources    :reasons_restricts, only: [:index, :show]
+  resources    :foods_users, only: [:index, :show]
   resources    :posts, only: [:index, :show]
 
-  resources    :taboo_foods, :time_periods, :reasons
+  resources    :foods, :periods, :reasons
 
 end

@@ -16,9 +16,34 @@ ActiveRecord::Schema.define(version: 20150513225453) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "foods", force: :cascade do |t|
+    t.text     "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods_users", force: :cascade do |t|
+    t.integer "food_id"
+    t.integer "user_id"
+  end
+
+  create_table "periods", force: :cascade do |t|
+    t.text     "when"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "periods_restricts", id: false, force: :cascade do |t|
+    t.integer "foods_users_id"
+    t.integer "periods_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer  "profile_id"
+    t.string   "title"
     t.text     "content"
+    t.integer  "food_id"
+    t.integer  "reason_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,36 +55,14 @@ ActiveRecord::Schema.define(version: 20150513225453) do
   end
 
   create_table "reasons", force: :cascade do |t|
-    t.text     "reason_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.text     "why"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "restrict_reasons", id: false, force: :cascade do |t|
+  create_table "reasons_restricts", id: false, force: :cascade do |t|
     t.integer "reasons_id"
-    t.integer "taboo_foods_users_id"
-  end
-
-  create_table "restrict_times", id: false, force: :cascade do |t|
-    t.integer "taboo_foods_users_id"
-    t.integer "time_periods_id"
-  end
-
-  create_table "taboo_foods", force: :cascade do |t|
-    t.text     "taboo_food_name"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "taboo_foods_users", force: :cascade do |t|
-    t.integer "taboo_food_id"
-    t.integer "user_id"
-  end
-
-  create_table "time_periods", force: :cascade do |t|
-    t.text     "time_pd_name"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer "foods_users_id"
   end
 
   create_table "users", force: :cascade do |t|
