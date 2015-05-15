@@ -1,26 +1,54 @@
+body
+ {
+    background-color: black;
+    background-image: url("no_copy.png"), url("foods_light.jpg");
+    background-size: 40%, cover;
+    background-position: top 50px, top center;
+    background-repeat: no-repeat;
+ }
 
 
- <div class="nav_bar">
-   <ul class="menu">
-     <li><%= link_to "Home", root_path, :class => "list" %></li>
-     <li><%= link_to "Profiles", profiles_path, :class => "list" %></li>
-     <li><%= link_to "Add A Post", new_post_path, :class => "list" %></li>
-
-     <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "list" %></li>
-
-     <li><%= link_to 'Sign in', new_user_session_path, :class => "list" %></li>
-
-     <% end %>
-   </ul>
- </div>
 
 
+ /*Navigation elements*/
+ .nav_bar {
+   margin: 0;
+   padding: 0;
+ }
+
+ .menu a{
+   font-family: 'Helvetica', sans-serif;
+   color: #47392c;
+
+   text-decoration: none;
+ }
+
+ .menu a:hover {
+   background-color: #cccccc;
+ }
+
+ .menu {
+   text-align: center;
+   margin-top: 10px;
+ }
+
+ .menu li {
+   display: inline;
+   list-style-type: none;
+   padding: 20px;
+ }
+
+ .menu h1 {
+   display: inline;
+ }
+ /*end of nav_bar*/
 
 h1
  {
    text-align: center;
-   font-family: 'Oswald', sans-serif;
+   font-family: 'Helvetica', sans-serif;
    font-size: 28px;
+   background-color: FFFFCC;
    color: #383737;
    line-height: 28px;
  }
