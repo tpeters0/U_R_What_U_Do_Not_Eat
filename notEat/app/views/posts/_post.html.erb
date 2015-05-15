@@ -1,16 +1,18 @@
 <div class="post">
 
-  <p class="post-content"><%= post.content %></p>
-  <% if post.profile %>
-    <p class="post-author">By <%= post.profile.name %></p>
-  <% end %>
-  <p class="post-links">
-    <%= link_to_unless_current 'View', post %>
-    <% if can? :update, post %>
-      | <%= link_to 'Edit', edit_post_path(post) %>
+  <p class="post-title"><%= post.title %></p>
+    <% if post.profile %>
+      <p class="post-author">By <%= post.profile.name %></p>
     <% end %>
+
+  <p class="post-links">
+
+    <% if can? :update, post %>
+       <%= link_to 'Edit', edit_post_path(post) %>
+    <% end %>
+
     <% if can? :destroy, post %>
-      | <%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'} %>
+       <%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'} %>
     <% end %>
   </p>
 </div>

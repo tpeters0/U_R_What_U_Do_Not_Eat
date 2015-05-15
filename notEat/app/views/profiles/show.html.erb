@@ -1,3 +1,28 @@
-<h1>Profile</h1>
+<h1><%= @profile.name %></h1>
 
-<%= render @profile %>
+<div class="profile">
+
+	<li><h4>Posts: </h4></li>
+
+	<ul>
+	  <% @profile.posts.each do |post| %>
+	    <li><%= link_to post.title, post_path(post) %></li>
+	  <% end %>
+	</ul>
+</div>
+
+<div class='profile-actions'>
+
+
+  <% if can? :update, @profile %>
+    <a href="/profiles/<%= @profile.id %>/edit">Edit</a>
+  <% end %>
+
+  <% if can? :delete, @profile %>
+    <form action="<%= profile_path(@profile) %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="delete">
+    </form>
+    <% end %>
+
+</div>

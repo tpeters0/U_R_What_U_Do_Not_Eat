@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    # @post.user = current_user
+    @profile.user = current_user
       if @profile.save
         redirect_to @profile
       else
@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
   end
 
   def update
-      if @profile.update(post_params)
+      if @profile.update(profile_params)
         redirect_to @profile
       else
         render :edit
@@ -35,9 +35,6 @@ class ProfilesController < ApplicationController
 
   private
     def profile_params
-      params.require(:profile).permit(:content)
+      params.require(:profile).permit(:name)
     end
   end
-
-
-end
