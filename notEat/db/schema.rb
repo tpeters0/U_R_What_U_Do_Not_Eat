@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150513225453) do
 
   create_table "restrictions", force: :cascade do |t|
     t.integer "food_id"
-    t.integer "user_id"
+    t.integer "profile_id"
     t.text    "comment"
   end
 

@@ -21,21 +21,17 @@ class Ability
         user == profile.user
       end
       can :update, Post do |post|
-        # user == post.user
+         user == post.profile
       end
 
       can :destroy, Post do |post|
-        # user == post.user
+         user == post.profile
       end
     end
 
-
-
-
-
-    # if user.admin
-    #   can :manage, :all
-    # end
+    #  if profile.admin
+    #    can :manage, :all
+    #  end
 
   end
 end

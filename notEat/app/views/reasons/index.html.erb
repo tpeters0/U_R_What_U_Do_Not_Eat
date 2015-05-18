@@ -1,7 +1,10 @@
 <h3>Reasons</h3>
 
+
 <ul>
   <% @reasons.each do |reason| %>
     <li><%= reason.why %> </li>
   <% end %>
 </ul>
+
+<%= pie_chart [["Allergy", 10], ["Religion", 5], ["Animal Ethics", 2]] %>

@@ -122,6 +122,11 @@ profiles = [
   {
     name:    "Tammy",
     admin:   "true"
+  },
+
+  {
+    name:    "Greg",
+    admin:   "false"
   }
 ]
 
@@ -134,7 +139,7 @@ restrictions = [
   {
     comment: "tree nut allergy",
     food:    "Tree Nuts",
-    profile: "Tammy"
+    profile: "Greg"
   }
 ]
 
@@ -142,6 +147,6 @@ restrictions.each do |restriction_hash|
   Restriction.create!({
     comment: restriction_hash[:comment],
     food_id: Food.find_by(name: restriction_hash[:food]),
-    user_id: Profile.find_by(name: restriction_hash[:profile])
+    profile_id: Profile.find_by(name: restriction_hash[:profile])
 })
 end

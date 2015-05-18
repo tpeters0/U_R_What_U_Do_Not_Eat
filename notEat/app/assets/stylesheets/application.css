@@ -7,9 +7,6 @@ body
     background-repeat: no-repeat;
  }
 
-
-
-
  /*Navigation elements*/
  .nav_bar {
    margin: 0;
@@ -52,6 +49,14 @@ h1
    color: #383737;
    line-height: 28px;
  }
+
+div
+{
+  margin-left: 40%;
+  margin-right: 20%;
+  background-color: white;
+  opacity: .9;
+}
 
 
  ul

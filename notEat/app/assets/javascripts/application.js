@@ -1,5 +1,26 @@
+$(document).ready(function() {
+  $('form#search input[type=submit]').on("click", searchData);
+})
 
-<%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
+
+seeResults.addEventListener('click', function(event){
+   event.preventDefault();
+   $.ajax({
+     type: "GET",
+     dataType: "json",
+     url: window.location.origin  + "/restrictions.json"
+     }).done(function(response){
+
+})
+
+}
+function displayResults(results) {
+  var container = $("#results");
+  container.empty();
+  results.forEach(function(result) {
+    container.append("<li><a href='" + result.href + "'>" + result.name + "</a></li>");
+  })
+}
 
 var chart = new Chart(".chart", foodChart)
 

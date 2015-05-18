@@ -1,6 +1,5 @@
 class Post < ActiveRecord::Base
-  # belongs_to :user
   belongs_to :profile
-  references :food
-  references :reason
+  belongs_to :reason
+  belongs_to :food
 end

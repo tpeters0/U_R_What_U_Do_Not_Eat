@@ -1,3 +1,4 @@
 class Food < ActiveRecord::Base
-  has_many  :users, through: :restriction
+  belongs_to  :restriction
+  has_many    :posts
 end
