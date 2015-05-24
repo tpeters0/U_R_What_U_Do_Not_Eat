@@ -1,0 +1,65 @@
+body
+ {
+    background-color: black;
+    background-image: url("no_copy.png"), url("foods_light.jpg");
+    background-size: 40%, cover;
+    background-position: top 50px, top center;
+    background-repeat: no-repeat;
+ }
+
+ /*Navigation elements*/
+ .nav_bar {
+   margin: 0;
+   padding: 0;
+ }
+
+ .menu a{
+   font-family: 'Helvetica', sans-serif;
+   color: #47392c;
+
+   text-decoration: none;
+ }
+
+ .menu a:hover {
+   background-color: #cccccc;
+ }
+
+ .menu {
+   text-align: center;
+   margin-top: 10px;
+ }
+
+ .menu li {
+   display: inline;
+   list-style-type: none;
+   padding: 20px;
+ }
+
+ .menu h1 {
+   display: inline;
+ }
+ /*end of nav_bar*/
+
+h1
+ {
+   text-align: center;
+   font-family: 'Helvetica', sans-serif;
+   font-size: 28px;
+   background-color: FFFFCC;
+   color: #383737;
+   line-height: 28px;
+ }
+
+div
+{
+  margin-left: 40%;
+  margin-right: 20%;
+  background-color: white;
+  opacity: .9;
+}
+
+
+ ul
+ {
+     list-style-type: none;
+ }
